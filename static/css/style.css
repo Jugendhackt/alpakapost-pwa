@@ -1,8 +1,23 @@
 body{
- background-color: white; 
+ background-color: grey; 
+ margin: 0;
+ padding: 0;
 }
 .mapclass{
-	width: 900px;
-	height: 400px;
+	width: 100vw;
+	height: 100vh;
 	position: absolute;
+	top: 0;
+	left: 0;
 }
+.input_text{
+	position: absolute;
+	z-index: 1000;
+	left: 60px;
+	top: 15px;
+}
+.input_text input, button{
+	padding: 5px;
+}
+
+
