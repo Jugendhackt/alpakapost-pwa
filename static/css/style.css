@@ -1,0 +1,8 @@
+body{
+ background-color: white; 
+}
+.mapclass{
+	width: 900px;
+	height: 400px;
+	position: absolute;
+}
