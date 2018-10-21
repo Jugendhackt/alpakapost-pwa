@@ -22,7 +22,19 @@ function initMap() {
 	mymap.on('click', setMarker);	
 	function printMarker(){
 		for(i= 0; i < obj.length; i++){
-                	var marker = L.marker([obj[i].latitude, obj[i].longitude]).addTo(mymap);        
+			if (obj[i].logo_url == undefined){
+				
+				console.log(obj[i]);
+			}
+			console.log(obj[i].logo_url);
+			var hackspaceIcon = L.icon({
+        	                iconUrl: obj[i].logo_url,
+                                iconSize:     [40, 40], // size of the icon
+                                iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+                                popupAnchor:  [0, -18] // point from which the popup should open relative to the iconAnchor
+                       	});
+                	var marker = L.marker([obj[i].latitude, obj[i].longitude], {icon: hackspaceIcon}).addTo(mymap);        
+
         	}
 	}
 }
@@ -69,29 +81,3 @@ function getRoute(){
                 return;
         }
 }
-
-
-
-
-function setMarker(e){
-      var lat = e.latlng.lat;
-      var lng = e.latlng.lng;
-      var marker = L.marker([lat, lng]).on('click', () => {
-          displayAdd();
-          var msg = document.querySelector("#description").value;
-	       marker.bindPopup(msg).openPopup();
-//	      console.log("Test");
-      }).addTo(mymap);
-
-      L.Routing.control({
-        waypoints: [
-        L.latLng(57.74, 11.94),
-        L.latLng(57.6792, 11.949)
-      ],
-       routeWhileDragging: true}).addTo(mymap);	
-       marker.bindPopup(lat + " " + lng).openPopup();
-  }
-
-
-
-        
