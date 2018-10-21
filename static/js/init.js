@@ -88,6 +88,3 @@ function getRoute(){
         }
 }
 
-function setPopupText(){
-	let html = `<p>Hallo, ich bin ein Test!</p>`
-}
