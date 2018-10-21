@@ -19,7 +19,6 @@ function initMap() {
                 id: 'mapbox.streets'
         }).addTo(mymap);
 
-	mymap.on('click', setMarker);	
 	function printMarker(){
 		for(i= 0; i < obj.length; i++){
 			if (obj[i].logo_url == undefined){
@@ -33,8 +32,15 @@ function initMap() {
                                 iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
                                 popupAnchor:  [0, -18] // point from which the popup should open relative to the iconAnchor
                        	});
-                	var marker = L.marker([obj[i].latitude, obj[i].longitude], {icon: hackspaceIcon}).addTo(mymap);        
-
+                	var marker = L.marker([obj[i].latitude, obj[i].longitude], {icon: hackspaceIcon});
+			marker["Description_name"] = obj[i].name;
+			marker["Description_lat"] = obj[i].latitude;
+			marker["Description_lng"] = obj[i].longitude;
+			marker["Description_lat"] = obj[i].latitude;
+                        marker["Description_lng"] = obj[i].longitude;
+			marker.addTo(mymap).bindPopup("Name: " +  marker.Description_name + "<br>" + "Latitude: " + marker.Description_lat + "<br>" + "Longitude" + marker.Description_lng + "<br>");
+			//marker.addTo(mymap).bindPopup("Latitude: " + marker.Description_lat + "<br>");
+			//marker.addTo(mymap).bindPopup("Longitude" + marker.Description_lng + "<br>");
         	}
 	}
 }
@@ -80,4 +86,8 @@ function getRoute(){
         }else{
                 return;
         }
+}
+
+function setPopupText(){
+	let html = `<p>Hallo, ich bin ein Test!</p>`
 }
