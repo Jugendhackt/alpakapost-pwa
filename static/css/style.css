@@ -19,8 +19,3 @@ body{
 .input_text input, button{
 	padding: 5px;
 }
-.help_button{
-	position: absolute;
-	width: 20px;
-	height: 20px; 
-}

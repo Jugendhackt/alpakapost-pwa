@@ -36,9 +36,7 @@ function initMap() {
 			marker["Description_name"] = obj[i].name;
 			marker["Description_lat"] = obj[i].latitude;
 			marker["Description_lng"] = obj[i].longitude;
-			marker["Description_lat"] = obj[i].latitude;
-                        marker["Description_lng"] = obj[i].longitude;
-			marker.addTo(mymap).bindPopup("Name: " +  marker.Description_name + "<br>" + "Latitude: " + marker.Description_lat + "<br>" + "Longitude" + marker.Description_lng + "<br>");
+			marker.addTo(mymap).bindPopup("Name: " +  marker.Description_name + "<br>" + "Latitude: " + marker.Description_lat + "<br>" + "Longitude: " + marker.Description_lng + "<br>");
 			//marker.addTo(mymap).bindPopup("Latitude: " + marker.Description_lat + "<br>");
 			//marker.addTo(mymap).bindPopup("Longitude" + marker.Description_lng + "<br>");
         	}
@@ -80,7 +78,7 @@ function getRoute(){
         if(start_lat != undefined && start_lng != undefined && end_lat != undefined && end_lng != undefined){
                  console.log(start_lat, start_lng, end_lat, end_lng);
                  searched_line = [{
-                 "name":"Test", "hs1_latitude":start_lat, "hs1_longitude":start_lng, "hs2_latitude": end_lat, "hs2_longitude": end_lng
+                  "hs1_latitude":start_lat, "hs1_longitude":start_lng, "hs2_latitude": end_lat, "hs2_longitude": end_lng
                 }];
 		drawLine(searched_line, 'black');
         }else{
